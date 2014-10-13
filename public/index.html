@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="app/app.js" type="text/javascript"></script>
+    <script src="app/controller/AssignmentController.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" >
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+</head>
+<body ng-app="MainApp" class="aptitud-blue" >
+    <div class="col-lg-2" ></div>
+    <div class="col-lg-8 box" ng-controller="AssignmentController" >
+        <div style="margin-bottom: 20px;" >
+            <img class="logo" src="images/aptitudlogo.png">
+        </div>
+        <div class="dot-box" >
+            <span class="dot-box-header" >Ework</span>
+            <a class="external-link" href="https://www.ework.se/Soker-du-uppdrag/Alla-uppdrag" target="_blank" ><span class="ui-icon ui-icon-extlink" ></span></a>
+            <a class="toggle-link"  href="" toggle="eworkcontainer" load="ework" > <span class="ui-icon ui-icon-circle-plus"></span> </a>
+            <table id="eworkcontainer" style="display: none;" class="tbl" >
+                <tbody>
+                    <tr>
+                        <td>Uppdrag</td>
+                        <td>Kompetens</td>
+                        <td>Datum</td>
+                    </tr>
+                    <tr ng-repeat="a in eworkassignments" >
+                        <td>{{a.assignment}}</td>
+                        <td>{{a.kompetens}}</td>
+                        <td>{{a.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="dot-box" >
+            <span class="dot-box-header" >Rapidkonsult</span>
+            <a class="external-link" href=" http://rapidkonsult.se/for-konsulter/aktuella-uppdrag/" target="_blank" ><span class="ui-icon ui-icon-extlink" ></span></a>
+            <a class="toggle-link" href="" toggle="rapidkonsultcontainer" load="rapidkonsult" > <span class="ui-icon ui-icon-circle-plus"></span> </a>
+            <table id="rapidkonsultcontainer" style="display: none;" class="tbl" >
+                <tbody>
+                <tr>
+                    <td>Uppdrag</td>
+                    <td>Plats</td>
+                </tr>
+                <tr ng-repeat="a in rapidkonsultassignments" >
+                    <td>{{a.assignment}}</td>
+                    <td>{{a.location}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="dot-box" >
+            <span class="dot-box-header" >God IT</span>
+            <a class="external-link" href=" http://god-it.se/uppdrag/" target="_blank" ><span class="ui-icon ui-icon-extlink" ></span></a>
+            <a class="toggle-link" href="" toggle="goditcontainer" load="godit" > <span class="ui-icon ui-icon-circle-plus"></span> </a>
+            <table id="goditcontainer" style="display: none;" class="tbl" >
+                <tbody>
+                <tr>
+                    <td>Uppdrag</td>
+                    <td>Link</td>
+                </tr>
+                <tr ng-repeat="a in goditassignments" >
+                    <td>{{a.assignment}}</td>
+                    <td><a href="{{a.link}}" target="_blank">go to</a> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="dot-box" >
+            <span class="dot-box-header" >Gabert partners</span>
+            <a class="external-link" href=" http://www.gabert-partners.se/" target="_blank" ><span class="ui-icon ui-icon-extlink" ></span></a>
+            <a class="toggle-link" href="" toggle="gabertpartnerscontainer" load="gabertpartners" > <span class="ui-icon ui-icon-circle-plus"></span> </a>
+            <table id="gabertpartnerscontainer" style="display: none;" class="tbl" >
+                <tbody>
+                <tr>
+                    <td>Uppdrag</td>
+                    <td>Plats</td>
+                </tr>
+                <tr ng-repeat="a in gabertpartnersassignments" >
+                    <td>{{a.assignment}}</td>
+                    <td>{{a.location}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="dot-box" >
+            <span class="dot-box-header" >Keyman</span>
+            <a class="external-link" href=" http://www.keyman.se/jag-ar-konsult/uppdrag/" target="_blank" ><span class="ui-icon ui-icon-extlink" ></span></a>
+            <a class="toggle-link" href="" toggle="keymancontainer" load="keyman" > <span class="ui-icon ui-icon-circle-plus"></span> </a>
+            <table id="keymancontainer" style="display: none;" class="tbl" >
+                <tbody>
+                <tr>
+                    <td>Uppdrag</td>
+                    <td>Link</td>
+                </tr>
+                <tr ng-repeat="a in keymanassignments" >
+                    <td>{{a.assignment}}</td>
+                    <td><a href="{{a.link}}" target="_blank">go to</a> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        {{movies}}
+    </div>
+    <div class="col-lg-2" ></div>
+</body>
+</html>
