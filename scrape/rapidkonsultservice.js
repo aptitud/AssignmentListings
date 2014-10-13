@@ -26,7 +26,6 @@ module.exports = {
                         }
                     }
                 });
-                console.log("sdsd" + searchResult);
                 res.json({
                     assignments : searchResult
                 });

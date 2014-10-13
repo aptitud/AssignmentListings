@@ -3,11 +3,11 @@
  */
 // set up ========================
 var express  = require('express');
-var app      = express(); 								// create our app w/ express
-var mongoose = require('mongoose'); 					// mongoose for mongodb
-var morgan = require('morgan'); 			// log requests to the console (express4)
-var bodyParser = require('body-parser'); 	// pull information from HTML POST (express4)
-var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+var app      = express();
+var mongoose = require('mongoose');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 var eworksService = require('./scrape/eworksservice');
 var rapidkonsultService = require('./scrape/rapidkonsultservice');
 var goditService = require('./scrape/goditservice');
@@ -16,22 +16,20 @@ var keymanService = require('./scrape/keymanservice');
 
 // configuration =================
 
-mongoose.connect('mongodb://fmf:fmfadmin@linus.mongohq.com:10000/findmyfriend'); 	// connect to mongoDB database on modulus.io
+mongoose.connect('mongodb://fmf:fmfadmin@linus.mongohq.com:10000/findmyfriend');
 
-app.use(express.static(__dirname + '/public')); 				// set the static files location /public/img will be /img for users
-app.use(morgan('dev')); 										// log every request to the console
-app.use(bodyParser.urlencoded({'extended':'true'})); 			// parse application/x-www-form-urlencoded
-app.use(bodyParser.json()); 									// parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(express.static(__dirname + '/public'));
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({'extended':'true'}));
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 app.set('port', (process.env.PORT || 5000));
 
-// listen (start app with node server.js) ======================================
+// Start server ======================================
 app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'))
 });
-
-console.log("App listening on port 8080");
 
 app.get('/scrape', function(req, res){
     var type = req.param('type');

@@ -19,8 +19,10 @@ module.exports = {
                     var data = $(this);
                     for(var i = 0; i<data.length; i++){
                         var link = $(data[i]);
-                        var a = getAsAssignment(link.text(),link.attr('href'));
-                        searchResult.push(a);
+                        if(link.text().indexOf('TILLSATT') == -1) {
+                            var a = getAsAssignment(link.text(), link.attr('href'));
+                            searchResult.push(a);
+                        }
                     }
                 });
 
