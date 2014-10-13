@@ -1,4 +1,5 @@
 body{font-family: sans-serif; padding: 1em;}
+.main-header{text-align: center; font-weight: bold; margin-bottom: 50px; color: #1e859a;}
 .aptitud-blue{background-color: #1e859a;}
 .box{
     background-color: #FFFFFF;
