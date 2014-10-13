@@ -1,13 +1,7 @@
 /**
  * Created by Zem on 2014-10-10.
  */
-app.controller("AssignmentController", function($scope, $http, Loader){
-
-    $scope.rapidkonsultFilters = ['Stockholm'];
-    $scope.eworkFilters = ['Stockholm'];
-    $scope.goditFilters = [];
-    $scope.gabertpartnersFilters = [];
-    $scope.keymanFilters = [];
+app.controller("AssignmentController", function($scope, $http, ScrapeService, Loader){
 
     $scope.addFilter = function(type){
         if(!$scope.filterToAdd || $scope.filterToAdd.length == 0){
@@ -38,11 +32,7 @@ app.controller("AssignmentController", function($scope, $http, Loader){
 
     $scope.fetchAssignments = function(type){
         Loader.start();
-        $http.get('/scrape',{
-            params: {
-                type: type
-            }
-        }).success(function(data){
+        ScrapeService.scrape(type).success(function(data){
             var filters = getFilterList(type);
             updateAssignments(type, filter(filters ,data.assignments));
             updateOrginal(type, data.assignments);
@@ -51,6 +41,11 @@ app.controller("AssignmentController", function($scope, $http, Loader){
     }
 
     $scope.init = function(){
+        $scope.rapidkonsultFilters = ['Stockholm'];
+        $scope.eworkFilters = ['Stockholm'];
+        $scope.goditFilters = [];
+        $scope.gabertpartnersFilters = [];
+        $scope.keymanFilters = [];
         $(".toggle-link").bind('click',toggleDotBox);
     }
 
