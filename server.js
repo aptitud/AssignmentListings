@@ -48,37 +48,6 @@ app.get('/scrape', function(req, res){
     }
 });
 
-app.get('/api/users', function(req, res){
-    User.find(function(err, users){
-        if(err){
-            res.send(err);
-        }
-        res.json(users);
-    });
-});
-
-app.post('/api/users', function(req, res){
-    User.create({
-        name : req.body.name,
-        done : false
-    }, function(err, user){
-        if(err){
-            res.send(err);
-        }
-        User.find(function(err, users){
-            if(err){
-                res.send(err);
-            }
-            res.json(users);
-        });
-    });
-});
-
-
-//DB modules
-var User  = mongoose.model('User',{
-    name: String
-});
 
 app.get('*', function(req, res) {
     res.sendfile(__dirname +'/public/index.html');
