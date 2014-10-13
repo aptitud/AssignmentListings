@@ -91,111 +91,51 @@ app.controller("AssignmentController", function($scope, $http, ScrapeService, Lo
     }
 
     function updateOrginal(type, assignments){
-        if(type == 'ework') {
-            $scope.orgeworkassignments = assignments;
-        }
-        else if(type == 'rapidkonsult'){
-            $scope.orgrapidkonsultassignments = assignments;
-        }
-        else if(type == 'godit'){
-            $scope.orggoditassignments = assignments;
-        }
-        else if(type == 'gabertpartners'){
-            $scope.orggabertpartnersassignments = assignments;
-        }
-        else if(type == 'keyman'){
-            $scope.orgkeymanassignments = assignments;
-        }
+        if(type == 'ework') $scope.orgeworkassignments = assignments;
+        else if(type == 'rapidkonsult') $scope.orgrapidkonsultassignments = assignments;
+        else if(type == 'godit') $scope.orggoditassignments = assignments;
+        else if(type == 'gabertpartners') $scope.orggabertpartnersassignments = assignments;
+        else if(type == 'keyman') $scope.orgkeymanassignments = assignments;
     }
 
     function updateAssignments(type, assignments){
-        if(type == 'ework') {
-            $scope.eworkassignments = assignments;
-        }
-        else if(type == 'rapidkonsult'){
-            $scope.rapidkonsultassignments = assignments;
-        }
-        else if(type == 'godit'){
-            $scope.goditassignments = assignments;
-        }
-        else if(type == 'gabertpartners'){
-            $scope.gabertpartnersassignments = assignments;
-        }
-        else if(type == 'keyman'){
-            $scope.keymanassignments = assignments;
-        }
+        if(type == 'ework') $scope.eworkassignments = assignments;
+        else if(type == 'rapidkonsult') $scope.rapidkonsultassignments = assignments;
+        else if(type == 'godit') $scope.goditassignments = assignments;
+        else if(type == 'gabertpartners') $scope.gabertpartnersassignments = assignments;
+        else if(type == 'keyman') $scope.keymanassignments = assignments;
     }
 
     function updateFilterList(type, filterList){
-        if(type == 'ework') {
-            $scope.eworkFilters = filterList;
-        }
-        else if(type == 'rapidkonsult'){
-            $scope.rapidkonsultFilters = filterList;
-        }
-        else if(type == 'godit'){
-            $scope.goditFilters = filterList;
-        }
-        else if(type == 'gabertpartners'){
-            $scope.gabertpartnersFilters = filterList;
-        }
-        else if(type == 'keyman'){
-            $scope.keymanFilters = filterList;
-        }
+        if(type == 'ework') $scope.eworkFilters = filterList;
+        else if(type == 'rapidkonsult') $scope.rapidkonsultFilters = filterList;
+        else if(type == 'godit') $scope.goditFilters = filterList;
+        else if(type == 'gabertpartners') $scope.gabertpartnersFilters = filterList;
+        else if(type == 'keyman') $scope.keymanFilters = filterList;
     }
 
     function getAssignments(type){
-        if(type == 'ework') {
-            return $scope.eworkassignments;
-        }
-        else if(type == 'rapidkonsult'){
-            return $scope.rapidkonsultassignments;
-        }
-        else if(type == 'godit'){
-            return $scope.goditassignments;
-        }
-        else if(type == 'gabertpartners'){
-            return $scope.gabertpartnersassignments;
-        }
-        else if(type == 'keyman'){
-            return $scope.keymanassignments;
-        }
+        if(type == 'ework') return $scope.eworkassignments;
+        else if(type == 'rapidkonsult')return $scope.rapidkonsultassignments;
+        else if(type == 'godit') return $scope.goditassignments;
+        else if(type == 'gabertpartners') return $scope.gabertpartnersassignments;
+        else if(type == 'keyman') return $scope.keymanassignments;
     }
 
     function getOrginalAssignments(type){
-        if(type == 'ework') {
-            return $scope.orgeworkassignments;
-        }
-        else if(type == 'rapidkonsult'){
-            return $scope.orgrapidkonsultassignments;
-        }
-        else if(type == 'godit'){
-            return $scope.orggoditassignments;
-        }
-        else if(type == 'gabertpartners'){
-            return $scope.orggabertpartnersassignments;
-        }
-        else if(type == 'keyman'){
-            return $scope.orgkeymanassignments;
-        }
+        if(type == 'ework') return $scope.orgeworkassignments;
+        else if(type == 'rapidkonsult') return $scope.orgrapidkonsultassignments;
+        else if(type == 'godit') return $scope.orggoditassignments;
+        else if(type == 'gabertpartners') return $scope.orggabertpartnersassignments;
+        else if(type == 'keyman') return $scope.orgkeymanassignments;
     }
 
     function getFilterList(type){
-        if(type == 'ework') {
-            return $scope.eworkFilters;
-        }
-        else if(type == 'rapidkonsult'){
-            return $scope.rapidkonsultFilters;
-        }
-        else if(type == 'godit'){
-            return $scope.goditFilters;
-        }
-        else if(type == 'gabertpartners'){
-            return $scope.gabertpartnersFilters;
-        }
-        else if(type == 'keyman'){
-            return $scope.keymanFilters;
-        }
+        if(type == 'ework') return $scope.eworkFilters;
+        else if(type == 'rapidkonsult') return $scope.rapidkonsultFilters;
+        else if(type == 'godit') return $scope.goditFilters;
+        else if(type == 'gabertpartners') return $scope.gabertpartnersFilters;
+        else if(type == 'keyman') return $scope.keymanFilters;
     }
 
     $scope.init();
