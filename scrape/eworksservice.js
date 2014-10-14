@@ -18,8 +18,8 @@ module.exports = {
                 var searchResult = [];
                 $(".content_table").find("tr[class*='listContent']").filter(function(){
                     var data = $(this);
-                    for(var i = 0; i<data.length; i++){
-                        var cells = $(data[i]).find('td');
+                    if(searchResult.length != 10){
+                        var cells = data.find('td');
                         if(cells.length > 2){
                             var a = getAsAssignment($(cells[0]).text(),$(cells[1]).text(),$(cells[2]).text());
                             searchResult.push(a);
