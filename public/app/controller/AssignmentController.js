@@ -42,7 +42,7 @@ app.controller("AssignmentController", function($scope, $http, ScrapeService, Lo
 
     $scope.init = function(){
         $scope.rapidkonsultFilters = ['Stockholm'];
-        $scope.eworkFilters = ['Stockholm'];
+        $scope.eworkFilters = [];
         $scope.goditFilters = [];
         $scope.gabertpartnersFilters = [];
         $scope.keymanFilters = [];

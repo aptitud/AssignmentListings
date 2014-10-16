@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 
 module.exports = {
     scrapeEworks: function (req, res) {
-        var url = 'https://www.ework.se/Soker-du-uppdrag/Alla-uppdrag';
+        var url = 'https://www.ework.se/Soker-du-uppdrag/Alla-uppdrag/(filtertext)/all/(filtercompetence)/-1/(filtercountry)/1350';
         request(url, function(error, response, html){
 
             if(!error){
@@ -18,14 +18,15 @@ module.exports = {
                 var searchResult = [];
                 $(".content_table").find("tr[class*='listContent']").filter(function(){
                     var data = $(this);
-                    if(searchResult.length != 10){
+
                         var cells = data.find('td');
-                        if(cells.length > 2){
+                        if(cells.length > 2 && useFilter(cells.text())){
                             var a = getAsAssignment($(cells[0]).text(),$(cells[1]).text(),$(cells[2]).text());
                             searchResult.push(a);
                         }
-                    }
+
                 });
+
                 res.json({
                     assignments : searchResult
                 });
@@ -35,3 +36,25 @@ module.exports = {
         });
     }
 };
+
+function useFilter(text){
+    var filterStad = ['Stockholm', 'Södertälje'];
+    var filters = ['java', '.NET', 'Testledare', 'Testledning'];
+    var result = false;
+    filters.forEach(function(filter){
+
+        if(text.toLowerCase().indexOf(filter.toLowerCase()) != -1){
+            console.log(filter);
+            result = true;
+        }
+    });
+    var stadresult= false;
+    filterStad.forEach(function(filter){
+
+        if(text.toLowerCase().indexOf(filter.toLowerCase()) != -1){
+            console.log(filter);
+            stadresult = true;
+        }
+    });
+    return result && stadresult;
+}
